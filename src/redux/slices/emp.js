@@ -35,6 +35,7 @@ const slice = createSlice({
               },
               getDeleteData(state, action) {
                 state.deletePostData = action.payload;
+                console.log("hi",action.payload)
               },
   },
 });
@@ -74,6 +75,17 @@ export function getEmp() {
     
     };
   }
+//-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
   export function deleteUsers(id) {
     console.log("id", id);
@@ -83,22 +95,12 @@ export function getEmp() {
         const response = await axios.delete(
           `https://jsonplaceholder.typicode.com/posts/${id}`);
         dispatch(slice.actions.getDeleteData(response.data));
+        console.log(response.data,"delete")
       } catch (error) {
         dispatch(slice.actions.hasError(error));
       }
     };
   }
 
-  export function EditUsers(id) {
-    return async () => {
-      dispatch(slice.actions.startLoading());
-      try {
-        const response = await axios.put(
-          `https://jsonplaceholder.typicode.com/posts/${id}`);
-        dispatch(slice.actions.getEditData(response.data.data));
-      } catch (error) {
-        dispatch(slice.actions.hasError(error));
-      }
-    };
-  }
+ 
   
