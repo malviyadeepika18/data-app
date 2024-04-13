@@ -1,8 +1,9 @@
-.menu{
+.menu {
   border: 1px solid black;
 
 }
-.text-center{
+
+.text-center {
   text-align: center;
   border: 1px solid black;
   background-color: rgb(9, 9, 43);
@@ -14,29 +15,35 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color:none;
-  color:red;
+  background-color: none;
+  color: red;
   border: none;
   /* padding: 5px; */
   border-radius: 50%;
   cursor: pointer;
   z-index: 999;
 }
-.box{
+
+.box {
   text-align: center;
 }
 
 .card-text-container {
-  max-height: 30px; /* Set your desired maximum height */
+  /* max-height: 30px;  */
   overflow: hidden;
+
 }
+
 .fixed-height {
-  height: 300px; /* Set your desired fixed height for the cards */
-  overflow: hidden;
+  height: 100% !important;
+  /* overflow: hidden; */
 }
+
 .loader {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #3498db; /* Blue */
+  border: 8px solid #f3f3f3;
+  /* Light grey */
+  border-top: 8px solid #3498db;
+  /* Blue */
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -46,6 +53,48 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card-title {
+  font-size: 18px;
+  /* Adjust as needed */
+  margin-bottom: 10px;
+  overflow: hidden;
+  /* Hide overflow content */
+  white-space: nowrap;
+  /* Prevent text wrapping */
+  text-overflow: ellipsis;
+  /* Show ellipsis for overflow text */
+}
+
+.card-text {
+  font-size: 14px;
+  /* Adjust as needed */
+  margin-bottom: 10px;
+  overflow: hidden;
+  /* Hide overflow content */
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Limit to two lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  /* Allow wrapping */
+}
+
+.card-img-top {
+  max-width: 100%;
+  max-height: 100%;
+  /* Ensure image fits within the card */
+  display: block;
+  /* Remove any extra space */
+  margin: 0 auto;
+  /* Center the image horizontally */
 }

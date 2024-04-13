@@ -38,19 +38,16 @@ console.log("hfhjdshghhdghdg",geteEmpData);
     }
   }, [geteEmpData]);
 
-  const handleDelete = async (id) => {
-    try {
 
-      await dispatch(deleteUsers(id));
-      
+  //delete card---------------------------------------------------------
+  const handleDelete = async (user) => {
+    console.log(user.id,"uuuuuuuuuuuuuuuu");
 
-      await dispatch(getEmp());
-    } catch (error) {
-      console.error("Error deleting user:", error);
-     
-    }
+  //  alert(id)
+  dispatch(deleteUsers(user.id));
   };
   
+ 
 
    
    const indexOfLastCard = currentPage * cardsPerPage;
@@ -68,14 +65,14 @@ console.log("hfhjdshghhdghdg",geteEmpData);
       {showLoader && <div className="loader"></div>}
       {!showLoader && (
 
-
-        <Container>
+<div className="container">
+        
               <div className="row mt-3">
               {currentCards.map((user, index) => (
-                <div  key={index}  className="col-4">
+                <div  key={index}  className={`col-4 ${index >= 3 ? 'mt-3' : ''}`}>
                   <div className="card fixed-height">
                     <div className="card-body ">
-                      <button className="close-icon"   onClick={() => handleDelete(user.id)} >X</button>
+                      <button className="close-icon"   onClick={() => handleDelete(user)} >X</button>
                       <h5 className="card-title card-text-container ">{user.title}</h5>
                     
                       <p className="card-text card-text-container ">
@@ -95,7 +92,7 @@ console.log("hfhjdshghhdghdg",geteEmpData);
               ))}
                 </div>
              
-                <div className="mt-3">
+                <div className="mt-2">
   <nav aria-label="Page navigation example">
     <ul className="pagination justify-content-center">
       <li className="page-item">
@@ -144,9 +141,9 @@ console.log("hfhjdshghhdghdg",geteEmpData);
 </div>
 
                 
+</div>
 
-
-        </Container>
+      
       )}
     </div>
   );
